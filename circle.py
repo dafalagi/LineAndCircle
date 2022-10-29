@@ -1,10 +1,13 @@
+# Install pygame untuk menjalankan kode dibawah ini
+# berikut link dokumentasinya https://www.pygame.org/wiki/GettingStarted
+
 from pygame import gfxdraw
-import sys,pygame
+import pygame
 pygame.display.init()
 
 screen = pygame.display.set_mode((800,400))
 screen.fill((0,0,0))
-pygame.display.flip()
+pygame.display.update()
 
 def circle(radius,offset):
 	x,y = 0,radius
@@ -19,26 +22,28 @@ def symmetry_points(x,y,offset):
 	gfxdraw.pixel(screen,-y+offset,x+offset,(255,255,255))
 	gfxdraw.pixel(screen,y+offset,-x+offset,(255,255,255))
 	gfxdraw.pixel(screen,-y+offset,-x+offset,(255,255,255))
-	pygame.display.flip()
+	pygame.display.update()
 
 def plotCircle(x,y,radius,offset):
 	d = 1 - radius
-	symmetry_points(x,y,radius+offset)
+	symmetry_points(x , y , radius + offset)
 	while x < y:
 		if d < 0:
 			x += 1
-			d += 2*x + 1
+			d += 2 * x + 1
 		else:
 			x += 1
 			y -= 1
-			d += 2*(x-y) + 1
-		symmetry_points(x,y,radius+offset)
+			d += 2 * ( x - y ) + 1
+		symmetry_points(x , y , radius + offset)
 
-Fradius = int(input("Masukan nilai radius : "))
-Foffset = int(input("Masukan nilai offset : "))
-circle(Fradius,Foffset)
+inputRadius = int(input("Masukan nilai radius : "))
+circle(inputRadius,25)
 pygame.display.update()
 
-while 1:
+isRun = True
+
+while isRun:
 	for event in pygame.event.get():
-		if event.type == pygame.QUIT: sys.exit()
+		if event.type == pygame.QUIT: isRun = False
+pygame.quit()
