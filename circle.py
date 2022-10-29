@@ -1,5 +1,6 @@
 # Install pygame untuk menjalankan kode dibawah ini
-# berikut link dokumentasinya https://www.pygame.org/wiki/GettingStarted
+# Gunakan perintah "pip install -U pygame --user" untuk install pygame
+# berikut link dokumentasi https://www.pygame.org/wiki/GettingStarted
 
 from pygame import gfxdraw
 import pygame
