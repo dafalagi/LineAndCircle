@@ -6,13 +6,11 @@ from pygame import gfxdraw
 import pygame
 pygame.display.init()
 
-screen = pygame.display.set_mode((800,400))
-screen.fill((0,0,0))
-pygame.display.update()
+inputRadius = int(input("Masukan nilai radius : "))
 
-def circle(radius,offset):
-	x,y = 0,radius
-	plotCircle(x,y,radius,offset)
+screen = pygame.display.set_mode((inputRadius*3,inputRadius*3))
+screen.fill((90,90,90))
+pygame.display.update()
 
 def symmetry_points(x,y,offset):
 	gfxdraw.pixel(screen,x+offset,y+offset,(255,255,255))
@@ -38,8 +36,11 @@ def plotCircle(x,y,radius,offset):
 			d += 2 * ( x - y ) + 1
 		symmetry_points(x , y , radius + offset)
 
-inputRadius = int(input("Masukan nilai radius : "))
-circle(inputRadius,25)
+def circle(radius,offset):
+	x,y = 0,radius
+	plotCircle(x,y,radius,offset)
+
+circle(inputRadius,inputRadius // 2)
 pygame.display.update()
 
 isRun = True
