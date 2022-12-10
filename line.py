@@ -1,3 +1,6 @@
+# Install matplotlib untuk menjalankan kode di bawah ini
+# Gunakan perintah 'pip install matplotlib' untuk menginstall
+
 import matplotlib.pyplot as plt
 plt.title("Bresenham Algorithm")
 plt.xlabel("X Axis")
@@ -17,7 +20,7 @@ def bres(x1,y1,x2,y2):
 
     p = 2*dy - dx
     print(f"x = {x}, y = {y}")
-    # Initialize the plotting points
+    
     xcoordinates = [x]
     ycoordinates = [y]
 
